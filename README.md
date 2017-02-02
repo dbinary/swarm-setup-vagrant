@@ -24,10 +24,17 @@ $ vagrant ssh manager
 ```
 $ docker swarm init --advertise-addr 192.168.70.10
 ```
-
 The output includes the commands to join new nodes to the swarm
 
-- Now connects to worker1 & worker2 and run the previous command
+## Setup swarm workers
+
+- Now connects to worker1 & worker2 and type the following command
+
+```
+$ docker swarm join \
+    --token TO_BE_REPLACED_WITH_TOKEN_GENERATED IN PREVIOUS STEP \
+    192.168.70.10:2377
+```
 
 # Results
 
