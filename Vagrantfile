@@ -16,6 +16,12 @@ Vagrant.configure('2') do |config|
         vb.cpus = $cpu
         vb.gui = $gui
       end
+      c.vm.provider "vmware_workstation" do |v|
+        v.vmx["memsize"] = $memory
+        v.vmx["numvcpus"] = $cpu
+        v.vmx['displayname'] = machine['name']
+        v.gui = false
+      end
       c.vm.network 'private_network', ip: machine['ip']
 
       c.vm.synced_folder '.', '/vagrant', disabled: true
